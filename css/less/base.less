@@ -1,0 +1,121 @@
+/* @section 1. CSS-Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {display: block;}
+/* remember to define focus styles! */
+:focus { outline: 0 }
+ol, ul { list-style: none }
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: separate; border-spacing: 0 }
+caption, th, td { text-align: left; font-weight: normal }
+/* Webkit-Browser machen einen 2px margin außerhalb von Form-Elementen */
+button, input, select, textarea { margin: 0 }
+
+/* @section 2. Nicht-semantische Hilfsklassen
+--------------------------------------------------- */
+/* Die `.ir`-Klasse ist für image-replacement mit CSS-Hintergründen */
+.ir { display: block; direction: ltr; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left }
+
+/* Mit `.alwayshidden`,`.js .hidden` und `.noJs .scriptOnly` lassen sich Inhalte unter verschiedenen Bedingungen verstecken */
+.alwaysHidden { display: none; visibility: hidden } /* Inhalt immer versteckt , auch für Screenreader: http://webaim.org/techniques/css/invisiblecontent/*/
+.js .hidden,  /* Inhalt nur bei aktiviertem JS versteckt */
+.noJs .scriptOnly { display: none }  /* Inhalt nur bei DEaktiviertem JS versteckt, weil er sonst nur halb da wäre, z.B. Facebookboxen etc. */
+
+/* http://nicolasgallagher.com/micro-clearfix-hack/ */
+.cf:before,
+.cf:after { content: " "; display: table; }
+.cf:after { clear: both; }
+
+.fll { float: left }
+.flr { float: right }
+
+/* @section 3. Typo
+--------------------------------------------------- */
+body { font: 100%/1.4 Merriweather, 'Droid Serif', Gerogia, serif }
+button, input, select, textarea { font: 99% sans-serif }
+
+body, select, input, textarea { color: #444 }
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 0 .3em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #333;
+}
+h2, .h2 { font-size:300% }
+h3, .h3 { font-size:200% }
+h4, .h4 { font-size:160%; font-weight: 400; }
+h5, .h5 { font-size:108% }
+h6, .h6 { font-size:108%; font-weight: 400; }
+p, ul, ol { margin: 0 0 1.5em }
+
+ul, ol { margin-left: 2em }
+ul { list-style: disc }
+ol { list-style: decimal }
+
+small { font-size: 85% }
+strong, th { font-weight: 700 }
+em { font-style: italic }
+
+/* monospace normalisieren http://en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: SourceCode, monospace, sans-serif }
+
+sub { vertical-align: sub }
+sup { vertical-align: super}
+sub, sup { font-size: smaller }
+
+:lang(de-DE) { quotes:"\201E" "\201C" "\201A" "\2018" }
+:lang(de-CH) { quotes:"\00AB" "\00BB" "\2039" "\203A" }
+:lang(en)    { quotes:"\201C" "\201D" "\2018" "\2019" }
+:lang(fr)    { quotes:"\00AB\00A0" "\00A0\00BB" "\2039\00A0" "\00A0\203A" }
+q::before { content:open-quote }
+q::after { content:close-quote }
+
+blockquote {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 3em;
+    font-style: italic;
+    color: #555;
+
+    &::before {
+        content: "\201C";
+        position: absolute;
+        top: 0;
+        left: .2em;
+        font-size: 3em;
+        line-height: 1;
+    }
+
+    footer { margin: 0 0 1.5em }
+}
+
+/* @section 4. Basisstyles und Fixes
+--------------------------------------------------- */
+/* Scrollbar erzwingen für nicht IE, verhindert springen der Seite */
+html { overflow-y: scroll }
+
+/* Tabellen auf fixes Layout setzen, um Rendering im IE zu beschleunigen
+http://www.quirksmode.org/css/tables.html und http://msdn.microsoft.com/en-us/library/ms531161%28v=vs.85%29.aspx */
+table{ table-layout: fixed }
+td, td img { vertical-align: top }
+
+/* http://www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+pre { padding: 15px; white-space: pre; /* CSS2 */white-space: pre-wrap; /* CSS 2.1 */white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */word-wrap: break-word/* IE */}
+.prettyprint { font-size: .8em }
+
+
+/* checkboxen, radiobuttons, text inputs mit label ausrichten
+   by: Thierry Koblentz http://tjkdesign.com/ez-css/css/base.css */
+input[type="radio"] { vertical-align: text-bottom }
+input[type="checkbox"] { vertical-align: bottom }
+
+/* Scrollbar bei textarea im IE entfernen: http://www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+textarea { overflow: auto }
+
+/* Handcursor für klickbare Elemente: `.clickAble`, `label`, `input[type=button]`, `input[type=submit]` und `button` */
+.clickAble, label, input[type=button], input[type=submit], button { cursor: pointer }
+
+/* darf nicht zusammengefasst werden, keinen text-shadow verwenden! */
+::-moz-selection{ background: #268bd2; color:#fff; text-shadow: none }
+::selection { background: #268bd2; color:#fff; text-shadow: none }

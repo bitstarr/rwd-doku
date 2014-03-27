@@ -1,0 +1,23 @@
+{
+    "name": "rwd-doku",
+    "descriptopm": "Documentation about my knowledge of Responsive Webdesign",
+    "author": "Sebastian Laube <hello@sebastianlaube.de>",
+    "version": "1.0.0",
+    "engines": {
+        "node": ">=0.10.20"
+    },
+    "dependencies": {
+        "grunt": "0.4.2",
+        "grunt-contrib-csslint": "0.2.0",
+        "grunt-contrib-jshint": "0.8.0",
+        "grunt-contrib-watch": "0.5.3",
+        "grunt-htmlhint": "0.4.0",
+        "grunt-jsonlint": "1.0.4",
+        "grunt-contrib-concat": "0.3.0",
+        "grunt-contrib-uglify": "0.2.7",
+        "grunt-shell": "0.6.1",
+        "grunt-img": "0.1.7",
+        "less": "1.6.1",
+        "grunt-contrib-less": "0.9.0"
+    }
+}

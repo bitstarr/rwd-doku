@@ -1,0 +1,50 @@
+# Index-Browsing verbieten
+Options -Indexes -MultiViews
+
+# utf-8 Codierung für alles, was als text/plain oder text/html ausgeliefert wird
+AddDefaultCharset utf-8
+# utf-8 Codierung für einige Endungen erzwingen
+AddCharset utf-8 .atom .css .html .js .json .rss .vtt .webapp .xml
+
+# Nicht verraten, dass wir ein Apache sind
+ServerSignature Off
+
+# Rewrite Engine anschalten
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    # Options +SymLinksIfOwnerMatch
+    RewriteEngine On
+
+    # Block access to hidden files and directories.
+    # This includes directories used by version control systems such as Git and SVN.
+    # also gruntfiles, package.json and .less
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "((^|/)\.)|(gruntfile\.js|package\.json|.+\.less)" - [R=404]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set X-UA-Compatible "IE=edge"
+    # `mod_headers` can't match based on the content-type, however, we only
+    # want to send this header for HTML pages and not for the other resources
+    <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|opus|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+        Header unset X-UA-Compatible
+    </FilesMatch>
+</IfModule>
+
+AddType application/vnd.ms-fontobject  eot
+AddType font/truetype                  ttf
+AddType font/opentype                  otf
+AddType font/woff                      woff
+
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+
+    # Nach mime-type html, text, js und css komprimieren.
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript text/xml image/svg+xml application/javascript application/x-javascript application/atom_xml application/rss+xml application/xml application/xhtml+xml application/x-httpd-fastphp
+
+    # Ältere Browser auslassen, die gzip nicht unterstützen.
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+</IfModule>

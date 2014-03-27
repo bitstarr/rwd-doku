@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Responsive Webdesign</title>
+
+    <meta name="description" content="Diese Dokumentation soll allen Beteiligten helfen, die Teil von Designprozessen einer Responsive Website sind" />
+    <meta name="keywords" content="responsive webdesign, rwd, adaptive, flexible, mobile" />
+    <meta name="author" content="Sebastian Laube" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta http-equiv="cleartype" content="on" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- lab bottle icon from http://iconsweets2.com/ -->
+    <link rel="shortcut icon" sizes="16x16" href="img/favicon.png" />
+    <link rel="shortcut icon" sizes="196x196" href="apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-precomposed.png" />
+    <meta name="msapplication-TileImage" content="img/ms-tile.png" />
+    <meta name="msapplication-TileColor" content="#0f3553" />
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:700,400|Merriweather:400,700,400italic,700italic|Source+Code+Pro" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="js/prettify/sunburst.css" />
+
+</head>
+<!--[if lte IE 8 ]> <body class="ie noJs home"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <body class="noJs home"> <!--<![endif]-->
+<script>
+    //<![CDATA[
+    (function(b){b.className = b.className.replace(/noJs/, 'js');})(document.body);
+    //]]>
+</script>
+
+    <div class="content cf" id="content">
+
+        <h1>
+            <span class="hl-1">Responsive</span>
+            <span class="hl-2">Webdesign</span>
+        </h1>
+        <p class="dropline"><span>von Sebastian Laube</span></p>
+
+        <div class="navigation" id="navigation">
+
+        </div>
+
+        <h2 class="hyphens" id="ausgangssituation">Ausgangs&shy;situation</h2>
+        <p>Zu Beginn der Ausarbeitung ging es um eine Dokumentation von Best Practices für mobil-optimierte Websites. Es zeigte sich schnell, dass dieser Ansatz aber nicht mehr zeitgemäß war und das Konzept des responsive Webdesigns deutlich besser zu den aktuellen Herausforderungen im Web passt.</p>
+        <p>In diesem Dokument sollen Schwerpunkte für den Entwicklungsprozess einer Website mit Fokus auf Responsive Webdesign dargestellt werden. Dabei werden einzelne Abschnitte des Prozesses betrachtet und die Wichtigkeit von Interaktion zwischen allen Projektbeteiligten und auch den Projektphasen herausgestellt.</p>
+        <p>Ziel ist es, dass Designer und Frontendentwickler fähig sind, den Prozess zusammen mit dem Kunden/Management zu moderieren und fachliche Aufgaben mit nötigem Know-How und Weitsicht durchzuführen. Ein Kunde/Manager sollte die Prozesse verstehen, um seine neue Rolle in den veränderten Prozessen besser wahrnehmen zu können. Darum muss das Fachpersonal seine Kundschaft an die Hand nehmen und zu jedem Zeitpunkt fachlich begleiten.</p>
+        <p>Dieser Text soll aber nicht als Dogma verstanden werden, sondern als Hilfestellung oder Empfehlung. In der Praxis müssen sich einige Abläufe noch etablieren und der Markt wird sich weiter verändern, so dass auch dieser Text nicht in Stein gemeißelt ist. Anregungen sind also erwünscht.</p>
+
+        <hr />
+
+        <h3 id="post-pc-aera">Post-PC Ära</h3>
+        <p>Seit 2007 drängen verschiedenste neuartige Geräte auf den Markt. Sie bieten unterschiedliche technische Parameter. Daraus ergeben sich unendliche Kombinationen aus Bandbreite, Displaygröße, Auflösung, Eingabemethoden, Gerätefunktionen und Nutzungsmöglichkeiten. So müssen kleine Bildschirme nicht zwangsläufig Toucheingaben beherrschen oder PCs nicht mit hoher Bandbreite ans Netz angeschlossen sein.</p>
+        <div class="imgCaption full"><img src="assets/unsicherheit.png" alt="Schaubild Vermutung und mögliche Enttäuschung" width="768" height="436" /></div>
+        <p>Die Zugriffszahlen von PCs nehmen ab und wir können also nur noch Vermutungen anstellen, unter welchen Bedingungen unserer Websites in Zukunft benutzt werden. Außerdem können jeder Zeit neue Möglichkeiten entwickelt werden (Google Glass oder elektronische Tattoos von Motorola sei an dieser Stelle in den Raum geworfen).</p>
+
+        <h3 id="kein-mobiles-web">Es gibt kein mobiles Web</h3>
+        <figure class="imgCaption flr" style="width: 260px">
+            <img src="assets/mixer.jpg" alt="selbts Mixer könnten internetfähig sein" width="260" height="148" />
+            <figcaption class="captionText">Auch Mixer könnten internetfähig werden. <small>Grafik von <a href="http://blog.beetlebum.de/2012/11/13/ipv4-der-umwelt-zuliebe/">Johannes Kretzschmar</a></small>.</figcaption>
+        </figure>
+
+        <p>Auf diesen vielen neuen, meist mobilen Endgeräten, nutzen wir das selbe Internet wie mit dem PC, Spielkonsolen oder auch Kühlschränken. Es gibt ein Web für alle (<a href="http://www.w3.org/TR/mobile-bp/#OneWeb">One Web</a>). Nur der Kontext, in dem wir es nutzen, ändert sich. Das heißt, dass der Grund, das Ausgabemedium oder die Art, wie wir Websites nutzen unterschiedlich sind.</p>
+        <p>Diese Unterschiede hängen von verschiedenen Faktoren ab. Unter Anderem beeinflusst uns die Bildschirmgröße oder das Betriebssystem, dass durch seine grafische Oberfläche bestimmte Erwartungshaltungen oder Bedienmuster hervorruft. Aber auch die Situation in der wir uns befinden oder die verfügbare Bandbreite verändern unser Verhalten.</p>
+
+        <h3 id="rwd">Responsive Webdesign</h3>
+        <p>Um diesen Herausforderungen zu begegnen, nutzen wir das Konzept des Responsive Web Design (RWD). Responsive bedeutet so viel wie reagierend. Wir gestalten und bauen Websites so, dass sie sich dem Ausgabemedium anpassen und dem Nutzer so das optimale Erlebnis bieten.</p>
+        <p>Wenn wir für jede Geräteklasse eigene Websites anböten, würde uns das ins Chaos stürzen. Aber schon zwei Code-Basen zu warten kann anstrengend genug sein. Eine Website sollte für alle Arten des Zugriffs reichen (Nicht nur Menschen mit Geräten, sondern auch Software, wie Künstliche Intelligenzen oder Bots greifen auf unsere Informationen zu. Stichwort: <a href="#http://www.barrierefreies-webdesign.de/knowhow/validierung/semantik.html">Semantik</a>). Dafür ist vorausschauende Planung nötig. Im Idealfall produziert man eine Website, deren Basisvariante alle wichtigen Inhalte enthält, eine grafische Basiserfahrung bietet und je nach Features des Ausgabegeräts, die Optik anpasst und Inhalte nachlädt. Diesen Ansatz nennt man <q><strong>Content First</strong></q>. Dabei spielen <q>Media Queries</q> und <q>Contitonal Loading</q> eine große Rolle. Dazu aber später mehr.</p>
+        <figure class="imgCaption full">
+            <img src="assets/define.png" alt="Screenshot Define Responsive" width="768" height="576" />
+            <figcaption class="captionText"><a href="http://finecitizens.com/defineResponsive/">Define Responsive</a> zeigt mit einfachen Platzhaltern die Funktionsweise von RWD.</figcaption>
+        </figure>
+        <p>Wie weit man die Basisvariante reduziert, hängt von der Zielgruppe ab. Je nach Zielmarkt sind unterschiedlich viele Geräte im Einsatz, die einige oder viele der modernen Technologien nicht unterstützen. Im europäischen Raum sind solche Geräte aber dank des Smartphone-Booms eher selten im Netz unterwegs und wir können viele dieser Techniken einsetzen. Der barrierefreie Zugang zu allen Informationen sollte trotzdem immer möglich sein.</p>
+        <blockquote cite="http://www.zurb.com/responsive/design" lang="en">
+            <p>
+                Responsive Design, a term coined by <a href="http://www.alistapart.com/articles/responsive-web-design/">Ethan Marcotte</a>, allows you to build one fluid site that can shrink or stretch to fit any screen size on any device.
+            </p>
+        </blockquote>
+        <p>Websites auf diese Art zu planen und umzusetzen hat unter Anderem folgende Vorteile:</p>
+        <ul>
+            <li><q>one fits all</q> &ndash; eine Seite für alle Medien</li>
+            <li>Keine doppelete Wartung für eine gesonderte Mobilseite</li>
+            <li>Bessere Konsistenz für das Corporate Design</li>
+            <li>Einheitlichere Nutzerführung</li>
+            <li>Keine Redirects, kürzere Ladezeiten für alle Medien</li>
+            <li>Größeres Publikum</li>
+            <li>Niedrigere Absprungraten</li>
+        </ul>
+        <p>Dabei ergeben sich aber auch Herausforderungen:</p>
+        <ul>
+            <li>Umstellung vieler Prozesse erforderlich</li>
+            <li>Agile Workflows und langfristige Planung müssen vereint werden</li>
+            <li>Initiale Planung und Entwicklung benötigt mehr Zeit</li>
+            <li>Beim Einsatz von Bilder und Medien muss an Fallbacks gedacht werden</li>
+            <li>Komplexe Navigationsstrukturen sind schwierig auf kleinen Displays darzustellen</li>
+            <li>Wie alle Browser, haben auch Solche auf Mobilgeräten ihre Eigenheiten</li>
+        </ul>
+
+        <p>Inzwischen steigen die Besucherzahlen neuartiger Geräte so stark an, dass es nicht mehr um die Wahl zwischen Responsive Webdesign und seperater Mobil-Seite geht, sonder nur noch darum, wie schnell man seine Teams mit den nötigen Strukturen und Wissen ausstattet, um erfolgreich RWD Projekte zu stämmen.</p>
+
+        <hr />
+
+        <h2 class="hyphens" id="herangehensweise">Herangehens&shy;weise</h2>
+        <h3 id="workflows">Workflows</h3>
+        <p>Trotz der agilen Projektarbeit ist vorausschauende Planung nötig. Auf Grund der Komplexität, wenn viele Ausgabemedien bedient werden sollen, können Schnellschüsse die Stabilität des Codes gefährden. Ebenso steigt mit dieser Komplexität auch der Zeitaufwand. Das ist aber ein kleiner Beitrag verglichen mit der gesteigerten Reichweite des eigenen Produkts.</p>
+        <p>Das Wichtigste ist die Fokussierung auf das eigene Kernprodukt und den Nutzer. Fühlt sich der Nutzer missverstanden, orientierungslos oder überfordert, nimmt der er unser Angebote nicht an. Darum muss sich alles an den Kernkompetenzen, also unseren wichtigsten Inhalten und Produkten orientieren (Content First). Für die Entwicklung sind ausformulierte Funktionsbeschreibungen die Basis für ein erfolgreiches Projekt. Diese Anforderungen sollten Interaktionen und Inhalte ausführlich und nachvollziehbar beschreiben.</p>
+
+        <figure class="imgCaption full">
+            <img src="assets/workflows.png" alt="Schaubild: Wasserfall- und agiles Modell" width="768" height="478" />
+            <figcaption class="captionText">Das Wasserfallmodell (links) ist zu träge und autoritär für die Arbeit an Responsive Websites. Ein Agiler Prozess (rechts), bei dem ständig auf Augenhöhe kommuniziert wird, ermöglicht ein zielorientiertes Arbeiten.</figcaption>
+        </figure>
+
+        <p>Bereits lang erprobt und in der Branche schon weit verbreitet ist das agile Projekt-Management-Framework <q><a href="http://de.wikipedia.org/wiki/Scrum">Scrum</a></q>. Es basiert auf der Theorie empirischer Prozesssteuerung, was bedeutet, dass Wissen aus Erfahrung gewonnen wird und Entscheidungen auf Basis des Bekannten getroffen werden. Es eignet sich sehr gut für RWD, da es Weitblick aber auch Flexibilität mit einander vereinen kann.</p>
+        <p>Der Kunde/Manager ist in den neuen Prozessen, zusammen mit Design und Entwicklung, Teil des Teams und der Arbeitsprozesse. Diese Teammitglieder sind Partner, die das selbe Ziel verfolgen und auf Augenhöhe arbeiten.</p>
+        <p>Um zu Starten, sollen Ziele klar benannt und früh kommuniziert werden. So wissen alle Teammitglieder Bescheid und können proaktiv zum Gelingen beitragen. In diesem Zuge sollte man sich an einen Tisch setzen, um potentielle Schwierigkeiten im Konzept auszumachen. Das spart später Zeit, zeigt den Mitarbeitern Anerkennung und erhöht die Motivation. Sie werden nicht vor vollendete Tatsachen gestellt, ohne dass man Ihre Bedenken oder Idee gehört hat.</p>
+
+        <h3 id="content-first">Content First</h3>
+        <p><strong>Content ist wieder King</strong> (vgl. <a href="http://web.archive.org/web/20010126005200/http://www.microsoft.com/billgates/columns/1996essay/essay960103.asp">Bill Gates</a>). Darum sollten auch als Erstes die Inhalte definiert werden. Das kann zum Beispiel eine Visualisierung der Seitenstruktur sein (etwa eine Sitemap oder eine Baumstruktur). Daraus lassen sich Inhaltstypen ableiten, die es zu beachten gilt (Bildergalerien, Kommentare, Erlebnisberichte, Produktinfos, etc.) So kristallisiert sich früh heraus, welche Inhalte und Funktionen die Website enthalten soll.</p>
+        <p>Besonders wichtig ist die Relevanz der Inhalte. Ihre Anordnung und Abfolge sollte logisch sein und den Erwartungen des Users entsprechen. Beispielsweise wird ganz selbstverständlich der Preis eines Produkts nicht am Ende einer Seite versteckt. Aber bei anderen Inhalten könnte diese Entscheidung schwerer fallen und muss anhand der Zielsetzung abgeschätzt werden (Bspw. ob PS oder Laufleistung eines Gebrauchtwagens wichtiger sind).</p>
+
+        <h3 id="konzptphase">Konzeptphase</h3>
+        <p>Es ist nicht ungewöhnlich, dass sich Inhalte und Anforderungen während des gesamten Projektzyklus ändern können. Bei Responsive Webdesign Projekten sollte dabei das Team immer einbezogen sein, um früh mögliche Hürden zu identifizieren. Solche Änderungen werden unter Umständen deutlich länger dauern, als in traditionellen Webprojekten, da hier viel mehr Use Cases abgedeckt werden müssen. Dabei kann es notwendig werden, den Content neu zu priorisieren oder grundlegende Änderungen der Designsprache vorzunehmen.</p>
+        <p>Ein Konzept für flexible Websites ist im Idealfall eine ausformulierte Funktionsbeschreibung, die in Module und Funktionen unterteilt ist und auf möglichst viele Bereiche detailiert eingeht. Dabei sind die bereits priorisierten Inhalte eine wichtige Grundlage und sollte auch im Konzept erläutert werden.</p>
+        <p>Ein Konzept lässt sich auf verscheidene Arten erarbeiten. User Stories (<a href="http://www.newfangled.com/how_to_tell_the_users_story" lang="en">How to Tell the User's Story</a>, <a href="http://www.agilemodeling.com/artifacts/userStory.htm" lang="en">Introduction to User Stories</a>) oder <a href="http://24ways.org/2011/extracting-the-content/" lang="en">Page Tables</a> sind dabei gute Hilfsmittel.</p>
+
+
+        <h3 id="design">Design</h3>
+        <p>Designer und Frontend-Entwickler sind ideeller weise eine Person. Das verkürzt Kommunikationswege und Diskussionen :) Ist das nicht der Fall, müssen Designer und Entwickler sehr eng zusammenarbeiten. Durch die permanente Kommunikation werden ständig Designideen im Team besprochen und auf Machbarkeit geprüft. So können schnell Lösungen gefunden werden, wenn unvorhergesehene technische Herausforderungen Änderungen im Design oder bei Funktionen nötig machen.</p>
+        <p>Die Detailseite (Hotel, Blog-Post, Rezept, News-Artikel) ist das Herz jeder Seite und damit ein guter Ausgangspunkt für das Design. Wenn die Inhalte feststehen und priorisiert wurden, kann sich der Designer mit dem Frontend-Entwickler und dem Kunden/Manager zusammen setzen und beginnt die Aufteilung der Inhalte zu planen. Dazu nutzt man am Besten ein Whiteboard. Es wird je eine Variante für kleine und große Bildschirme skizziert. Dabei können Ungereimtheiten in der Priorisierung, den Inhalten oder am Konzept auffallen. In diesem Stadium lassen sie sich meistens noch leicht korrigieren. Durch die Beteiligung von Screening, Frontend und auch Qualitätskontrolle oder Systemarchitekten bleibt die Umsetzbarkeit immer im Blick.</p>
+        <div class="imgCaption full">
+            <img src="assets/whiteboard.jpg" alt="selbts Mixer könnten internetfähig sein" width="768" height="532" />
+            <p class="captionText">Wireframe der schmalen und breiten Version für ein Redesign. Ausgedruckte Screens dienen als eine Art Moodboard.</p>
+        </div>
+        <p>Es bietet sich an, Inhalte in beiden Extremen, mit der selben Farbe zu kennzeichnen. Dabei geht man die Bereiche nach Priorität durch und zeichnet sie ein. Auf einem Whiteboard hat man ausreichend Fläche und ist flexibel genug um schnell neue Ideen auf zu nehmen.</p>
+        <p>Den Designern und Frontendentwicklern dienen diese Wireframes als Diskussions- und Umsetzungsvorlage. Screendesigns sollten dann nur von einzelnen Elementen oder Modulen angefertigt werden. Später können sie grob zu einem Screen des Gesamtbilds einer Seite zusammengesetzt werden. Der Gesamtscreen soll, wie die Wireframes nur zur Orientierung dienen, denn <strong>Pixelperfektion</strong> ist in einem reponsiven Projekt weder förderlich noch möglich. Eine zu große visuelle Festlegung beim Kunden oder im Team würde der Adaptierbarkeit für die unterschiedlichen Anforderungen schaden. Wichtiger ist es eine <strong class="important">Designsprache für Module und Komponenten</strong> zu entwickeln.</p>
+        <p>Interaktionen muss man in den Medium beurteilen, in dem sie stattfinden. Darum ist ein Clickdummy das beste Mittel, um dem Kunden Fortschritte und Ideen zu zeigen. Im Gegensatz zu einem Screen lässt sich an einem Prototyp das Verhalten der Seite in verschieden Medien erfahren. Dabei kann man zusammen mit dem Kunden/Manager über Zwischenstufen (Breakpoints) entscheiden. Sie sollten gesetzt werden, wenn etwas zu brechen droht. Also das Layout verrutscht, oder nicht mehr den optimalen Lesefluss gewährt. Wenn genug Content zur Verfügung steht (am besten kein <q>Lorem Ipsum</q> sondern organischer Content), sieht man die Notwendigkeit für Breakpoints am besten und die Typografie kann genauer justiert werden.</p>
+
+        <blockquote cite="http://bradfrostweb.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/" lang="en">
+            <p>
+                Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!
+            </p>
+            <footer>&mdash; <a href="http://bradfrostweb.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">Stephen Hay</a></footer>
+        </blockquote>
+
+        <p>Besonders reine Screendesigner müssen hier ihren neuen Platz finden, da es viel schneller zum Prototyp geht und eher modular gescreent werden sollte. Mit der Maus arbeitet es sich einfach am langsamsten &ndash; während der Screener noch Pixel schubst, hat der Frontendler schon die dritte Überarbeitung fertig&hellip; Ein Screendesigner wird also bald viel Zeit am Platz des Frontendlers verbringen und vermutlich auch seine Fähigkeiten um HTML und CSS erweitern.</p>
+
+        <h3 id="visuelle-erwartungen">Visuelle Erwartungen</h3>
+        <p>Zeigt man dem Kunden/Manager zu detaillierte Wireframes oder Screendesigns, schürt das oft Layouterwartungen, die durch die agile Natur des Projekts später vielleicht nicht erfüllt werden können. Hält sich der Kunde/Manager dann an diesen Erwartungen fest, führt das zu unnötigen Spannungen zwischen allen Beteiligten. Ein Prototyp/Clickdummy ist die geeignete Präsentationsform für ein so dynamisches Produkt. Er lässt sich auch schneller anpassen und leichter erklären. Oft wird nämlich erst bei der Frontend-Umsetzung klar, dass einige Ideen aus den Wireframes oder Modul-Screens doch nicht so umsetzbar sind. Dann müssen Designer und Entwickler zusammen mit dem Kunden eine bessere Lösung suchen.</p>
+        <p>Dazu muss beim Kunden/Manager ein Umdenken stattfinden. Denn er muss Verantwortung abgeben und dem Design- und Entwicklungsteam vertrauen. Außerdem muss er (wie beim Wireframing) immer eingebunden und Teil des Prozesses sein. Beim Arbeiten im Team bildet sich so auf beiden Seiten Vertrauen und Verantwortungsbewusstsein.</p>
+
+        <h3 id="tipps-design-umsetzung">Tipps für Design und Umsetzung</h3>
+        <p>Auch wenn es uns manchmal so vorkommt, sind Smartphones, Tablets und Desktop Computer nicht die einzigen internetfähigen Geräte. Darum sollten wir andere Medien, die fähig sind eine Website anzuzeigen in Betracht ziehen (Fernseher, Featurephones, Projektoren, E-Book-Reader, Kühlschränke und selbst bedrucktes Papier!). Das könnte durchaus aufwändig sein, aber durch genaue Zielgruppenbestimmung lässt sich der Aufwand eingrenzen.</p>
+        <p>Wie bei konventionellen Websites gilt, dass man nicht auf JavaScript, Cookies oder Flash vertrauen darf. Letzteres ist besonders kritisch, da es unter iOS nie verfügbar war und ab Android 4.2 von Adobe und Google auch nicht mehr gewünscht wird. Von Featurephones und anderen Betriebssystemen ganz zu schweigen. Es ist viel wichtiger die Möglichkeiten des Ausgabemediums zu erkennen und zu nutzen. Zum Beispiel die integrierten Audio- und Video-Codecs.</p>
+        <p>Bei interaktiven Elementen sollte die Fläche großzügig dimensioniert sein, damit man sie auf Touch-Geräten bequem bedienen kann. Es hilft dem Nutzer bei der Bedienung, wenn er Ränder oder Ecken des Elements noch sehen kann, wenn es mit dem Finger berührt wird. Dadurch erhält ein optisches Feedback (Highlighting durch den Browser). Außerdem sollte man bei kleinen Bildschirmen keinen Platz verschwenden. So schön <q>negative Space</q> auch ist, wollen wir dem Nutzer auf dem ersten Blick genug Informationen präsentieren, die ihn motivieren auch den Rest der Seite zu lesen (also zu scrollen). Es gibt bereits <a href="http://bradfrost.github.com/this-is-responsive/patterns.html">Design Muster für Navigationen oder zusätzliche Inhalte</a> im RWD. Wiederkehrende Navigations- und Strukturmuster helfen den Nutzern sich zurecht zu finden (wie der altbekannte kleine Pfeil für Dropdown/Accordeon Elemente oder der typischen Navigation im Kopfbereich bei klassischen Websites). Diese Muster nehmen uns aber nicht das Denken ab. Wir müssen selbst entscheiden, ob der Einsatz vom Standpunkt der technischen Umsetzung und der Usability sinnvoll ist oder wir eine neue/andere Lösung benötigen.</p>
+        <p>Die Typografie sollte den Nutzer beim ermüdungsfreien Lesen unterstützen. Information Architects haben einen ausführlichen Artikel über <a href="http://informationarchitects.net/blog/responsive-typography-the-basics/">Responsive Typography</a> verfasst, den man sich auf jeden Fall durchlesen sollte. Wichtig ist, dass man die Entfernung zum Ausgabegerät beachtet und die Schriftgröße und Absatzlängen so wählt, dass man den Text so angenehm lesen kann, wie den in einem guten Buch.</p>
+        <p>Lightboxen und Layer lassen sich besonders auf Smartphones oft nur schlecht bedienen (und/oder nerven). Für die Präsentation von Bildern, wie in Bildergalerien, sollten Alternativen gefunden werden. Wenn man, wie <a href="http://bradfrostweb.com/blog/post/conditional-lightbox/">Brad Frost vorschlägt</a>, das Bild in einem neuen Tab öffnet, kann der Nutzer, durch gewohnte Gesten oder Browserfunktionen, Details des Bildes vergrößern und wird von uns nicht bevormundet, indem wir das Bild nur maximal auf Bildschirmbreite anzeigen. Wie auch am Desktop stellen solche Layer unter Umständen auch eine Einstiegshürde dar (Erinnerst du dich an die Flash-Intors aus den Neunzigern?). Sind solche Inhalte wichtig, wäre es gut darüber nachzudenken, wie man sie in den eigentlichen Content der Seite integriert.</p>
+        <p>Webfonts werden von den modernen Smartphones und Tablets meist problemlos verarbeitet. Hält man den Traffic im Blick, lässt sich diese Technologie also für unser Design nutzen. Außerdem lassen sie sich als Ersatz für Icons und Sprites instrumentalisieren, wie weiter unten beschrieben wird. Gehören zur Zielgruppe auch ältere Geräte, ist diese Technik kaum verfügbat und es sollten Fallbacks bestehen und natürlich auch getestet werden.</p>
+
+        <p>Da sich die mobilen Betriebssystem sehr schnell voran bewegen und auch die Hardware immer wieder neue Anforderungen hervorbringt, sollten wir viel ausprobieren. Was heute gilt, kann morgen schon überholt sein. Die eigenen Inhalte im <q>One Web</q> immer richtig zu präsentieren, bedeutet nicht nur Ideen und Techniken zu verstehen, sondern auch anzuwenden und geschickt zu kombinieren.</p>
+
+        <h3 id="stress">Stress</h3>
+        <p>Auch wenn mal etwas besonders schnell online gehen muss, ist das kein Grund in Panik zu geraten. Wie schon beschrieben, könnten schlecht geplante Features oder Fixes unseren liebevoll konzipierten und gepflegten Code in Mitleidenschaft ziehen. In Fällen größter Not hilft nur Ruhe bewahren! Holt das Team zusammen, beschreibt klar die Situation und findet gemeinsam eine Lösung. Der Kunde/Manager darf dabei nicht über die Köpfe seines Teams hinweg entscheiden und sollte sich ihre Vorschläge und Bedenken anhören (und vice versa).</p>
+
+        <h3 id="tldr">[TL;DR] Was ändert sich</h3>
+        <ul>
+            <li>RWD ist keine Wahlmöglichkeit, sonder der einzige sinnvolle Weg</li>
+            <li>Wandel im Endgerätemarkt lässt keine sichere Aussage über Ausgabemedien zu</li>
+            <li>Pixelperfektion unmöglich</li>
+            <li>Fokus auf Kernprodukte</li>
+            <li>Entschleunigung</li>
+            <li>Kunde/Management wird in agilen Workflow integriert</li>
+            <li>Vorausschauend planen</li>
+            <li>Designer und Entwickler früh einbeziehen</li>
+            <li>Vertrauen und Verantwortung für das Team</li>
+            <li>Mehr Kommunikation</li>
+            <li>Bei neuen Projekten oder Refactorings Zeit für Konzept und Design investieren</li>
+            <li>Bei Stress keine Schnellschüsse, sondern mit klarem Kopf und im Team handeln</li>
+        </ul>
+
+        <hr />
+
+        <h2 class="hyphens" id="codebeispiele">Code&shy;beispiele</h2>
+
+        <h3 id="viewport">Viewport</h3>
+        <blockquote cite="http://html5-mobile.de/blog/meta-viewport-fuer-mobile-anpassen">
+            <p>
+                Die Browser der mobilen Devices gehen zuerst einmal davon aus, dass Websites nicht für mobile Endgeräte ausgelegt sind und die Website-Breite die Display-Breite um einiges übersteigt. Der Browser-Viewport (Anzeigebereich) ist deshalb z.B. in Mobile Safari auf eine Breite von 980 Pixeln eingestellt, so dass die meisten Website komplett zu sehen sind. Logischerweise mit dem Nachteil, dass die Inhalte sehr klein und Schriften nicht lesbar sind. Der Nutzer muss dementsprechend hineinzoomen.
+            </p>
+            <footer>&mdash; <a href="http://html5-mobile.de/blog/meta-viewport-fuer-mobile-anpassen">Florian Plag</a></footer>
+        </blockquote>
+        <p>Für eine korrekte Skalierung nutzen wir eine einfache Zeile im <code>head</code>.</p>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;meta name="viewport" content="width=device-width; initial-scale=1.0;" /&gt;</code></pre>
+        <p>Genau Informationen zu den Parametern und der Funktionsweise finden sich bei <a href="http://html5-mobile.de/blog/meta-viewport-fuer-mobile-anpassen">HTML5 Mobile</a> und im <a href="https://developer.mozilla.org/en-US/docs/Mobile/Viewport_meta_tag">Mozilla Developer Network</a></p>
+
+        <h3 id="app-icon">App Icon</h3>
+        <p>Bei modernen Smartphones lassen sich Websites wie eine App auf den <q>Home Screen</q> legen. Dabei erscheint standardmäßig ein generisches Lesezeichen-Icon oder ein Screenshot der Website. Mit ein Paar Zeilen Code lässt sich ein eigenes Icon festlegen.</p>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;!-- For iPad with high-resolution Retina display running iOS ≥ 7: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152-precomposed.png"&gt;
+&lt;!-- For iPad with high-resolution Retina display running iOS ≤ 6: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png"&gt;
+&lt;!-- For iPhone with high-resolution Retina display running iOS ≥ 7: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120-precomposed.png"&gt;
+&lt;!-- For iPhone with high-resolution Retina display running iOS ≤ 6: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png"&gt;
+&lt;!-- For the iPad mini and the first- and second-generation iPad on iOS ≥ 7: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76-precomposed.png"&gt;
+&lt;!-- For the iPad mini and the first- and second-generation iPad on iOS ≤ 6: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png"&gt;
+&lt;!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png"&gt;
+&lt;!-- For nokia devices: --&gt;
+&lt;link rel="shortcut icon" href="apple-touch-icon.png" /&gt;
+&lt;!-- For Android 4+ devices: --&gt;
+&lt;link rel="shortcut icon" sizes="128x128" href="/awesome-hires-icon.png" /&gt;
+&lt;link rel="shortcut icon" sizes="196x196" href="/awesome-icon.png" /&gt;
+&lt;!-- Tile icon for Win8 (144x144 + tile color) --&gt;
+&lt;meta name="msapplication-TileImage" content="apple-touch-icon.png" /&gt;
+&lt;meta name="msapplication-TileColor" content="#abf322" /&gt;</code></pre>
+        <p>Für iOS-Geräte würde es reichen, das <code>apple-touch-icon.png</code> im Root des Webservers abzulegen. Für Android ist ein <code>link</code> Tag nötig. Dieses muss neben dem für iOS nötigen <code>rel="apple-touch-icon"</code>, noch ein <code>-precomposed</code> enthalten. Diese Eigenschaft verhindert bei Applegeräten das Hinzufügen von Schatten, Reflexion und abgerundeten Ecken zum Icon.</p>
+        <p>Man sollte darum auf das <code>precomposed</code> Icon zurückgreifen, da man so auch Android-Nutzern ein Icon anbieten kann und mehr Kontrolle über die Darstellung des Icons unter iOS hat. Es ist sinnvoll den absoluten Pfad zum Icon anzugeben, da es bei Android 2.x einen Bug mit relativen Pfaden gibt. Außerdem wird in Chrome für Android bald nur noch auf ein den Standards ensprchendes <code>&lt;link rel="shortcut icon"</code> <a href="https://developers.google.com/chrome/mobile/docs/installtohomescreen?hl=de">zurück gegriffen</a>. Google empfiehlt dabei eine Seitenlänge von 196 Pixeln.</p>
+        <p>Da inzwischen auch Windows (Phone) 8 eine solche Bookmark-Funktion hat, können wir sie mit einem Icon und einer Farbe für die Kachel beliefern.</p>
+        <p>Das <q>shortcut icon</q> funktioniert laut <cite><a href="http://www.developer.nokia.com/Community/Wiki/Porting_iPhone_web_app_to_WRT_on_Nokia_device">Nokia</a></cite> auf diesen Geräten: <q lang="en">S60 5th Edition devices, S60 3rd Edition, Feature Pack 2 devices, and selected S60 3rd Edition, Feature Pack 1 devices</q>. Ob diese Unterstürzung nötig ist, muss je nach Projekt entschieden werden.</p>
+        <p>Das Touch Icon ist eine Wissenschaft für sich. Die immer wieder aktualisierten <a href="http://mathiasbynens.be/notes/touch-icons">Beobachtungen zum Touch Icons von Mathias Bynens</a> bieten dazu ausführlichen Lesestoff.</p>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;link rel="shortcut icon" sizes="196x196" href="/apple-touch-icon-precomposed.png" /&gt;
+&lt;link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" /&gt;
+&lt;meta name="msapplication-TileImage" content="/ms-tile.png" /&gt;
+&lt;meta name="msapplication-TileColor" content="#abf322" /&gt;</code></pre>
+
+        <p>Der einfachste Weg wäre ein <code>precomposed</code> Icon in 196 Pixeln im Quadrat zu nutzen und eine Version (144px) für Windows Phones bereit zu stellen.</p>
+
+        <h3 id="protokolle">Protokolle für Telefonnummern</h3>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;a href="tel:01745556789"&gt;Rufen Sie mich an&lt;/a&gt;
+&lt;a href="sms:01712223456"&gt;Senden Sie mir einen SMS&lt;/a&gt;</code></pre>
+        <p>Die Telefonnummer wird als solche ausgezeichnet und man kann direkt auf die Funktionen des Handys zugreifen.</p>
+
+        <h3 id="nummererkennung">Nummern&shy;erkennung unterdrücken</h3>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;meta name="format-detection" content="telephone=no" /&gt;</code></pre>
+        <p>Smartphones erkennen Zahlenfolgen oft automatisch als Telefonnummern. Bei Klick (Touch) darauf, werden dem Nutzer Optionen, wie Anrufen oder Nachricht senden angeboten. Das ist nützlich, aber nicht immer erwünscht. In Tabellen, oder anderen datenintensiven Fällen z. B. Mit diesen Meta Tag unterdrückt man die Erkennung. (Und zeichnet echte Telefonnummern entsprechend aus, s. o.)</p>
+
+        <h3 id="eingabehilfen">Texteingabe&shy;hilfen abschalten</h3>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;input type="text" autocomplete="off"  /&gt;
+&lt;input type="text" autocorrect="off"  /&gt;
+&lt;input type="email" autocapitalize="off" /&gt;
+&lt;input type="text" autocomplete="off" autocorrect="off"  /&gt;
+</code></pre>
+        <p>Automatische Vervollständigung, Korrektur oder Großschreibung sind manchmal ganz praktisch. Aber sicher stößt man immer wieder auf Situationen, in denen man sie unterdrücken möchte. Ob für die bessere Bedienbarkeit, oder aus anderen Gründen. Diese Eigenschaften können miteinander kombiniert und auch auf <code>textarea</code> angewandt werden. Sie sind in XHTML 1 und HTML 4 nicht valide, aber erzeugen dort keine Darstellungsfehler.</p>
+        <p>Bei einem Projekt konnte ich feststellen, dass sich die Textvorschläge der Onscreen-Tastatur (konkret Samsung Galaxy S3) nicht an <code>autocomplete="off"</code> halten. Eine Lösung dafür habe ich leider bisher vergeblich gesucht.</p>
+
+        <h3 id="eingabetypen">Datentypen für Eingabefelder</h3>
+        <p>Der HTML5 Standard hat einige neue Typen für <code>input</code> Elemente mit sich gebracht. Diese sind noch nicht in allen Browsern vollständig integriert, aber bei Webkit-Browsern gut unterstützt. Ziel ist es u.A. dem Nutzer das optimale Tastatur-Layout für die Eingabe bereit zu stellen. Wenn z. B. eine Telefonnummer eingegeben werden soll, bekäme der Nutzer eine Zahlen-Tastatur angezeigt. In den weit verbreiteten Browsern von Android und iOS sind <code>email</code>, <code>number</code>, <code>search</code> oder <code>tel</code> verfügbar. Eine ausführliche Dokumentation zu den Typen gibt es beim <a href="https://developer.mozilla.org/en-US/docs/HTML/Element/Input">Mozilla Developer Network</a> sowie <a href="http://html5doctor.com/html5-forms-input-types/">HTML5 Doctor</a> und ein paar Beobachtungen zum Thema bei <a href="http://www.456bereastreet.com/archive/201004/html5_input_types/">456 Berea Street</a>.</p>
+        <p>Zu beachten ist, dass das Format <code>number</code> nur 15 Stellen überträgt und führende Nullen verschluckt. Damit ist es ungeeignet für Postleitzahlen (So etwas können fast nur Sachsen bemerken) oder CVC-Nummern von Kreditkarten. Semantisch nicht korrekt, aber technisch unproblematisch wäre in diesen Fällen die Verwendung des <code>tel</code> Formats.</p>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;input type="number" /&gt;
+&lt;input type="tel" /&gt;
+&lt;input type="email" /&gt;
+&lt;!-- Bessere Semantik, aber leider kein Effekt auf Android: --&gt;
+&lt;input type="text" pattern="\d*" novalidate /&gt;
+</code></pre>
+
+
+        <h3 id="kontextmenu">Unterdrücken des Kontextmenüs</h3>
+        <pre class="prettyprint lang-css cf">
+<code>.nocallout { -webkit-touch-callout: none }
+</code></pre>
+        <p>iOS only: Angenommen man baut eine Webapp. Keine externen Links und Grafiken soll auch keiner downloaden. Also wozu noch das Kontextmenü (Lange einen Link gedrückt halten)?</p>
+
+        <h3 id="webkit-form">iOS Formular&shy;elemente stylen</h3>
+        <pre class="prettyprint lang-css cf">
+<code>input[type="text"], textarea, .button {
+    -webkit-appearance: none
+}</code></pre>
+        <p>Meistens möchten wir <code>button</code> oder <code>input</code> Elemente mit CSS nach unseren Vorstellungen anpassen. iOS verweigert sich gern unserer CSS Eigenschaften und will uns die System-UI unterschieben. Mit dieser CSS-Eigenschaft wird dieses Verhalten abgestellt.</p>
+
+        <h3 id="icon-fonts">Icon Fonts</h3>
+        <p>Dienste wie <a href="http://www.google.com/fonts">Google Webfonts</a> oder <a href="http://www.fontsquirrel.com/">FontSquirrel</a> bieten uns eine Breite Palette an Webfonts. Dadurch ergeben sich für Designer ganz neue typografische Möglichkeiten. Diese praktische CSS Technik lässt sich aber auch als immer scharfer und Traffic-schonender Ersatz für Icon-Sprites nutzen.</p>
+        <p>Bei Webdiensten wie <a href="http://fontello.com/">Fontello</a>, <a href="http://icomoon.io/app/">IcoMoon</a> oder <a href="http://fontastic.me/">Fontastic</a> kann man sich die Icons, die man für sein Projekt benötigt, bequem aus einer breiten Auswahl von freien Icons zusammenklicken. Bei allen dreien kann man inzwischen eigene SVGs hinzufügen. Es werden nur die Icons in die finale Font übernommen, die wir wirklich brauchen, was Traffic spart. Bei Fontello kann man seine Font mit einer config Datei importieren und weiter bearbeiten. Fontastic erfordert einen Login. Dort kann man dann unbegrenzt Schriften anlegen und pflegen.</p>
+
+        <h3 id="media-queries">Media Queries</h3>
+        <p>Sie sind der Heilsbringer des <q>Progressive Enhancement</q>. Mit dieser CSS Technik kann man auf verschiedene Stadien bestimmter Geräteeigenschaften eingehen. Zum Beispiel horizontale oder Vertikale Breite, Pixeldichte, oder Lage des Geräts.</p>
+        <p>Wer sich eine Weile mit Webdesign beschäftigt hat, weiß dass der Einsatz von <code>px</code> Maßen nur in den wenigsten Fällen eine gute Idee ist. Setzt man bei Media Queries für Bildschirmbreiten Pixel ein, beschränkt man sich selbst. Und das es keinen Sinn macht, den Auflösungen bestimmter Geräte hinter zu hecheln, brauche ich sicher nicht erwähnen.</p>
+        <p><a href="http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/">Porportionale Media Queries</a>, also in <code>em</code> definierte, sind perfekt für den Einsatz im responsive Webdesign. Sie machen unsere Seite robuster und spiegeln unsere Fokussierung auf den Inhalt wieder. Wenn z. B. ein User mit Sehproblemen (oder dem Bedürfnis, sein Gerät nicht so nah am Gesicht zu haben) die Standard-Schriftgröße erhöht hat, wird das Layout nicht zerschossen. Je nach Situation könnte der nächst kleinere Breakpoint greifen und so eine sehr gut benutzbare Seite ausliefern. Vereinfacht gesprochen, bekäme dieser User auf seinem Tablet die Smartphone-Version zu sehen. Er kann sie bequem lesen und sie ist gut bedienbar.</p>
+        <p>Bei meiner Arbeit habe ich festgestellt, dass sich <code>em</code> in Media Queries immer an der Standardschriftgröße (1rem) des Browsers orientieren. Das heißt, es hat keinen Einfluss auf die Definitionen der Queries, wenn ich für <code>html</code> oder <code>body</code> eine Schriftgröße von zum Beispiel <code>.9em</code> festlege.</p>
+        <p>Um die Bildschirmbreite in <code>em</code> im Blick zu behalten gibt es ein Werkzeug, dass weiter unten vorgestellt wird und auch das gerade beschriebene Verhalten berücksichtigt.</p>
+
+        <h4 id="pixeldichte">Geräte mit sehr hoher Pixeldichte ansprechen</h4>
+        <pre class="prettyprint lang-css cf">
+<code>@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+    /* Eigenschaften */
+}</code></pre>
+        <p>Es könnte vorkommen, dass wir auf hochauflösende Displays besonders eingehen müssen. Mit dieser Query ist das zu schaffen. Sie sollte aber nicht inflationär gefüllt werden, um doppelte Wartung zu vermeiden. Schließlich sollte unser CSS wie auch beim IE ohne <q>Extrawürste</q> auskommen.</p>
+
+        <h4 id="vererbend">Vererbende Queries</h4>
+        <pre class="prettyprint lang-css cf">
+<code>/* Eigenschaften von Small nach Large vererben */
+body { background: maroon }
+.wrap { margin: 1em }
+
+@media only screen and (max-width:19.99em) {
+    /* unterhalb von 20em */
+    body { font-size: .9em }
+}
+@media only screen and (min-width:20em) {
+    /* oberhalb von 20em */
+    body { background: brown }
+}
+@media only screen and (min-width:30em) {
+    body { background: red }
+    .wrap { background: silver; padding: 1em }
+}
+@media only screen and (min-width:40em) {
+    body { background: orange }
+}
+@media only screen and (min-width:48em) {
+    body { background: yellow }
+    .col1 { color: green }
+}
+@media only screen and (min-width:56em) {
+    body { background: lime }
+}
+@media only screen and (min-width:75em) {
+    body { background: white }
+}</code></pre>
+        <p>In <a href="assets/mqTest.php">diesem Beispiel</a> passiert Folgendes: Der Hintergrund ist global auf <code>maroon</code> gestellt. Bei einer Bildschirmbreite, die kleiner als <code>20em</code> (<code>max-width</code>) ist, wird die Schriftgröße verkleinert. Ab <code>20em</code> (<code>min-width</code>) wird der Hintergrund <code>brown</code>, ab <code>30em</code> <code>red</code>, etc.</p>
+
+        <h4 id="gekapselt">Gekapselte Queries</h4>
+        <pre class="prettyprint lang-css cf">
+<code>/* Eigenschaften von Small nach Large vererben */
+body { background: white }
+
+@media only screen
+and (min-width:20em)
+and (max-width:39.99em) {
+    body { background: lime }
+}
+@media only screen
+and (min-width:40em)
+and (max-width:55.99em) {
+    body { background: yellow }
+    h1 { font-size: 2em }
+}
+@media only screen
+and (min-width:56em)
+and (max-width:74.99em) {
+    body { background: orange }
+}
+@media only screen and (min-width:75em) {
+    body { background: red }
+}</code></pre>
+        <p>Wenn man auf die Vererbung verzichtet, kann es zu einem Overhead an Code kommen. Es ergiebt sich aber die Möglichkeit für verschiedene Bildschirm-Breiten-Bereiche die Seite komlett anders aussehen zu lassen. In diesem Beispiel wird die Schriftgröße der <code>h1</code> im Bereich von <code>40-55.99em</code> verdoppelt. Das wirkt sich durch die Kapselung nicht auf andere Bereiche aus. Durch den vielen Code (den man u. U. doppelt schreibt) kann das schnell unübersichtlich und schwer zu verwalten werden.</p>
+        <p>Die Kapselung lässt sich aber in einer Vererbung-Struktur nutzen um Übergangszustände abzudecken oder andere Problemchen zu lösen.</p>
+
+        <h4 id="autofocus">Autofocus für Inputs</h4>
+        <p>In iOS-Versionen unterhalb von 6.0 gibt es <a href="http://stackoverflow.com/questions/7358781/tapping-on-label-in-mobile-safari">einen Bug</a>, der bewirkt, dass bei Klick auf ein <code>label</code> der Cursor nicht automatisch in das damit verbundene <code>input</code> wandert. Dieses Snippet behebt den Fehler.</p>
+        <pre class="prettyprint lang-js cf">
+<code>// Fixing iOS &lt; 6.0 Safari issue
+// @see http://stackoverflow.com/questions/7358781/tapping-on-label-in-mobile-safari
+$('label').click(function() {});</code></pre>
+
+        <hr />
+
+        <h2 class="hyphens" id="werkeuge">Werkzeuge</h2>
+
+        <h3 id="bordmittel">Bordmittel</h3>
+        <p>Bevor wir permanent unser Browserfenster skalieren, können wir die Werkzeuge unserer Browser nutzen. Im Firefox kommen wir mit der Tastenkombination <kbd class="kbd"><span>Strg</span> + <span>Shift</span> + <span>M</span></kbd> in den Responsive View.</p>
+        <p>Unter Chrome müssen wir in die Einstellungen der Developer Tools und im Reiter <q>Overrides</q> die <q>Device Metrics</q>, also Bildschirmparameter einstellen.</p>
+
+        <h3 id="rule-em-all">Rule&ndash;EM&ndash;All</h3>
+        <p>Wie oben erwähnt, sollten Breakpoints gesetzt werden, wenn der Inhalt das erfordert. Um die Werte für proportionale Media Queries in <code>em</code> zu erhalten, benötigen wir etwas Hilfe. <a href="http://ruleemall.sebastianlaube.de">EM Ruler und EM Meter</a> sind Bookmarklets, die uns ein Lineal oder einen Indikator bereitstellen. Sie gehen von der Basisschriftgröße des <code>body</code> aus.</p>
+
+        <hr />
+
+        <h2 class="hyphens" id="herausforderungen">Heraus&shy;forderungen</h2>
+        <p>Während der Entwicklung einer mobilen oder resposnive Website gibt es wiederkehrende Problemstellungen. Oft gibt es nicht <q>die richtige</q> Lösung, aber ein paar Lösungsansätze sollen hier Erwähnung finden.</p>
+
+        <h3 id="grids">Grids</h3>
+        <p>Sie sind schon eine Weile Bestandteil unserer gut geplegten Werkzeugkästen. Aber die Erfahrung zeigt, dass wir beim Einsatz von Grids im RWD umdenken müssen.</p>
+        <p>Es ist auch weiterhin wichtig, dass Designs mit dem Raster angelegt werden. Das schafft Klarheit und Struktur. In der Umsetzung müssen wir aber differenziert arbeiten. Gridsysteme, wie wir sie bisher im Einsatz hatten, sind unflexibel und geben uns nicht genügend Möglichkeiten zur <q lang="en">Art Direction</q>.</p>
+        <p>Es ist ein simpler Ansatz zu sagen unterhalt einer Bestimmten Bildschirmbreite sind alle Grid-Elemente einfach 100% breit und stehen untereinander. Aber wenn das Auge des Frontendentwicklers nicht beleidigt wird, dann sicher das des Screendesigners. Denn auch in kleinen Bildschirmbreiten wird es nötig sein Dinge nicht nur untereinander anzuordnen. Der Platz könnte es zulassen, dass Elemente nebeneinander passen.</p>
+        <p><q lang="en">Art Direction</q> ist immer ein manueller Vorgang. Er wird vom subjektiven Empfinden bestimmt und lässt sich schwer automatisieren. Darum wird es nötig sein auch viel im CSS manuell zu definieren, um diesem Anspruch gerecht zu werden.</p>
+        <p>Konkret würde das heißen, dass man in einem dreispaltigen layout nicht pauschal sagen würde, dass alle Blöcke auf Tablets und Smartphones untereinander stehen sollen. Schließlich kann man den Platz, abhängig von den Inhalten, viel sinnvoller Nutzen. Wie genau entscheiden (probiern) Designer und Entwickler gemeinsam am Bildschirm.</p>
+
+        <h3 id="drehzoom">Skalierungs­fehler beim Drehen unter iOS</h3>
+        <blockquote cite="http://html5-mobile.de/blog/iphone-bug-skalierung-querformat">
+            <p>
+                Dreht man ein Website ins Querformat (Landscape), die per Quellcode das Hineinzoomen über die 2-Finger-Geste „Pinch-to-Zoom” erlaubt, tritt der iOS-Scale-Bug auf: Die Breite des Viewports wird nicht richtig bestimmt und es fehlt ein bisschen, da zu nah reingezoom wird. Der Nutzer muss deshalb händisch etwas herauszoomen.
+            </p>
+            <footer>&mdash; <a href="http://html5-mobile.de/blog/iphone-bug-skalierung-querformat">Florian Plag</a></footer>
+        </blockquote>
+        <p><a href="http://filamentgroup.com/lab/a_fix_for_the_ios_orientationchange_zoom_bug/">Filament Group</a> hat dafür einen Workaround veröffentlicht, der kurzzeitig das Zoomen für iOS-Geräte deaktiviert. Dazu muss nur ein JavaScript eingebunden werden.</p>
+        <p>Eine Einfache Lösung für dieses Problem ist die Vergrößerung zu unterbinden. Allerdings sollte das mit Blick auf die Usability immer abgewogen werden.</p>
+        <pre class="prettyprint lang-html cf">
+<code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0" /&gt;</code></pre>
+
+        <h3 id="click-delay">Click Delay</h3>
+        <p>In den Browsern vieler mobiler Betriebssysteme ist eine Klickverzögerung von ca. 300ms integriert. Der Grund ist, dass der Browser abwarten soll, ob nicht noch ein Doppelklick erfolgt. Da wir in der Regel nicht mit diesem Event arbeiten und sich unsere Seiten nicht unnötig langsam anfühlen sollen, könnten wir diese Verzögerung abstellen. Das Web Team der Financial Times hat <a href="https://github.com/ftlabs/fastclick">eine Library</a> entwickelt, die diese Verzögerung eliminiert.</p>
+        <p>Ich muss aber nicht erwähnen, dass jedes Bit JavaScript die Performance beeinflussen kann. Es ist also zu prüfen, ob sich der Einsatz lohnt. Außerdem könnte der User beim Scrollen aus Versehen auf einen Link klicken, der dann sofort gefeuert wird. Hier sollte also auch an genug Platz gedacht werden.</p>
+
+        <h3 id="bilder">Bilder</h3>
+        <p>Bilder und Medien sind ein heikles Thema im responsive Webdesign. Viele kluge Köpfe haben sich schon mit dem Thema befasst. So hat das <a href="http://mobile.smashingmagazine.com/2013/07/08/choosing-a-responsive-image-solution/">Smashing Magazine</a> bereits einen kleinen Guide über die Auswahl einer passenden Vorgehensweise veröffentlicht.</p>
+        <p>Dabei ist <a href="https://github.com/scottjehl/picturefill">Picturefill</a> von Scott Jehl einer der vielversprechendsten Ansätze, da er sich an den <a href="http://responsiveimages.org/">zukünftigen Standards</a> orientiert. Außerdem wird im Smashing Magazine ein weiterer <a href="http://mobile.smashingmagazine.com/2013/05/10/how-to-avoid-duplicate-downloads-in-responsive-images/">guter, standardkonformer Ansatz</a> vorgestellt, der ohne JavaScript auskommen soll.</p>
+        <p>Ein interessanter Ansatz für das Art Direction (Bildausschnitt statt plumper Skalierung) Problem ist eine <a href="http://demosthenes.info/blog/722/Art-Directed-Adaptive-Images-With-SVG-and-JavaScript">JavaScript gestützte Clow-Car-Technik</a>.</p>
+        <p>Das Web Team der BBC arbeitet schon eine Weile an Responsive Techniken. Dabei sprechen sie <a href="http://responsivenews.co.uk/post/50092458307/images">in ihrem Blog</a> auch über Techniken für Bilder. Im Markup wird nur ein Bild eingebunden &ndash; ein kleines Bild für den ersten Artikel. Alle anderen sind Platzhalter, deren Inhalt durch JavaScript (DOM Manipulation) geladen wird, sobald der DOM fertig geladen ist.</p>
+
+        <h3 id="werbenanzeigen">Werbung</h3>
+        <p>Die Industrie scheint hier den Trend etwas zu verschlafen. Es gibt ein paar Ansätze, aber bei den großen Anbietern gibt es noch keine ausführliche Dokumentation über ein solches Feature. Beim Smashing Magazine hat man sich natürlich auch <a href="http://mobile.smashingmagazine.com/2012/11/29/making-advertising-work-in-a-responsive-world/">schon Gedanken gemacht</a>, aber das bleib dort leider recht theoretisch. Das IAB (Interactive Advertising Bureau) hat <a href="http://www.iab.net/responsivedesign">eine Demonstration veröffentlich</a>, die mit Google Doubleclick läuft.</p>
+
+        <p>Ein möglicher Lösungsansatz ist, für die drei häufigen Geräteklassen Smartphone, Tablet und Desktop, Werbeplätze im Design vor zu sehen. Dann wird mittels JavaScript erkannt, welche Displaygröße/Media Query benutzt wird und das entsprechende Script für die Werbung starten. Dreht der Nutzer sein Gerät, darf aber die Werbung nicht neu geladen werden, auch nicht, wenn dann eine andere Media Query genutzt wird. Die Bestimmungen der Werbeanbieter erlauben nur einen Werbeaufruf pro Seitenaufruf.</p>
+
+        <h3 id="maps">Maps</h3>
+        <p>Dienste wie Google Maps sind für Websites im Reisebereich besonders attraktiv. Ist der Kartenausschnitt aber zu groß, bleibt der Nutzer in der Karte gefangen. Die Karte sollte also nie so groß sein, dass von unserer Website zu wenig Touchfläche übrig bleibt, um weiter zu scrollen.</p>
+        <p>Außerdem ist zu überlegen, ob eine <q lang="en">static map</q>, oder ein Link auf Google Maps nicht sinnvoller wäre. Der Klick auf einen Google Maps Link kann in der nativen App enden, was für den User eine besser Erfahrung bedeuten könnte.</p>
+
+        <hr />
+
+        <h2 id="lesestoff">Lesestoff</h2>
+        <h3 id="lesenswert">Lesenswert</h3>
+        <ul>
+            <li><a href="http://www.netmagazine.com/tutorials/build-responsive-site-week-designing-responsively-part-1">Build a responsive site in a week Part 1</a>, <a href="http://www.netmagazine.com/tutorials/build-responsive-site-week-typography-and-grids-part-2">Part 2</a>, <a href="http://www.netmagazine.com/tutorials/build-responsive-site-week-images-and-video-part-3">Part 3</a>, <a href="http://www.netmagazine.com/tutorials/build-responsive-site-week-media-queries-part-4">Part 4</a>, <a href="http://www.netmagazine.com/tutorials/build-responsive-site-week-going-further-part-5">Part 5</a></li>
+            <li><a href="http://ia.net/blog/responsive-typography-the-basics/">Responsive Typography: The Basics</a></li>
+            <li><a href="http://simonfosterdesign.com/blog/web-design/the-responsive-designer/">The Responsive Designer</a></li>
+            <li><a href="http://alistapart.com/article/mo-pixels-mo-problems">http://alistapart.com/article/mo-pixels-mo-problems</a></li>
+            <li><a href="http://tympanus.net/codrops/2013/01/21/ui-design-guidelines-for-responsive-design/">UI Design Guidelines for Responsive Design</a></li>
+            <li><a href="http://learn.shayhowe.com/advanced-html-css/responsive-web-design">An Advanced Guide to HTML & CSS</a></li>
+            <li><a href="http://www.webdesignerdepot.com/2013/01/the-new-rules-of-the-responsive-web/">The new rules of the responsive web</a></li>
+            <li><a href="http://dbushell.com/2013/07/25/progressive-viewports/">Progressive Viewports</a></li>
+            <li><a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/">7 Habits of Highly Effective Media Queries</a></li>
+            <li><a href="http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/">Improve Mobile Support With Server-Side-Enhanced Responsive Design</a></li>
+            <li><a href="http://baymard.com/labs/touch-keyboard-types">Touch Keyboard Types &ndash; code and demos for invoking different touch keyboards</a></li>
+        </ul>
+
+        <h3 id="casestudies">Case Studies und Erfahrungen</h3>
+        <ul>
+            <li><a href="http://www.wsol.com/a-more-flexible-workflow/">A More Flexible Workflow</a></li>
+            <li><a href="http://www.newfangled.com/what_weve_learned_about_responsive_design">What We've Learned About Responsive Design</a></li>
+            <li><a href="http://responsivenews.co.uk/">Responsive News (BBC Web Team Blog)</a></li>
+            <li><a href="http://coding.smashingmagazine.com/2013/05/23/building-the-new-financial-times-web-app/">Building The New Financial Times Web App (A Case Study)</a></li>
+            <li><a href="http://adioso.com/blog/2013/06/responsifying-adioso/">Yes, you really can make complex webapps responsive</a></li>
+            <li><a href="http://supersteil.com/work/538/538_site/">Supersteil case study: The new radio 538.nl by Supersteil</a></li>
+        </ul>
+
+        <h3 id="sehenswert">Sehenswert</h3>
+        <p>Diese Seiten lassen sich mit den o.g. Browser-Tools testen.</p>
+        <ul>
+            <li><a href="http://mediaqueri.es/">MediaQueri.es</a></li>
+            <li><a href="http://hipbogen.de">Hipbogen</a></li>
+            <li><a href="http://kultursommer.cc">Chemnitzer Kultursommer</a></li>
+            <li><a href="http://sweethatclub.org/">Sweet Hat Club</a></li>
+            <li><a href="alistapart.com">A List Apart</a></li>
+            <li><a href="http://www.polygon.com/">Polygon</a></li>
+            <li><a href="http://www.bostonglobe.com/">Boston Globe</a></li>
+            <li><a href="http://thenextweb.com/">The Next Web</a></li>
+            <li><a href="http://www.starbucks.com/">Starbucks</a></li>
+        </ul>
+
+        <div class="footer" id="footer">
+            Fehler, Kritiken, Anregungen an <a href="http://sebastianlaube.de">Sebastian Laube</a> <a href="mailto:hello@sebastianlaube.de">&#x2709;</a>. Mit Liebe gemacht.
+        </div>
+
+    </div>
+
+<!--[if lte IE 8 ]> <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> <!--<![endif]-->
+    <script src="js/prettify/prettify.min.js"></script>
+    <script src="js/prettify/lang-css.js"></script>
+    <script src="js/base.js"></script>
+</body>
+</html>

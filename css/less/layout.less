@@ -1,0 +1,303 @@
+/*
+@tableofcontents
+1. Basics
+2. Layout
+3. Basisstyles und Fixes
+4. Grid
+5. Template
+6. Print-Styles
+*/
+
+@dropline: #666;
+
+/* @section 1. Basics
+--------------------------------------------------- */
+/* Focusbehandlung verbessern: http://people.opera.com/patrickl/experiments/keyboard/test */
+a:hover,
+a:active { outline: none }
+
+a, a:active,
+a:visited { color: #268bd2 }
+a:hover { color: #859900 }
+/* Highlighting für mobile Webkits http://j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #cb4b16 }
+a[href^="http://"]::after,
+a[href^="https://"]::after {
+    content:'\27b9';
+    display: inline-block;
+    margin: 0 0 0 .3em;
+    font-style: normal;
+    vertical-align: middle;
+}
+
+
+/* @section 2. Layout
+--------------------------------------------------- */
+body {
+/** To edit this background, follow this link:
+http://svgeneration.com/generate/Circular-Overlap-2?background=16a085&foreground=0e1c47&count=3&height=300&opacity=0.1&
+*/
+    background-color: #0e1c47;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nMTAwJScgaGVpZ2h0PSczMDAnPgoJPGRlZnM+CgkJPGcgaWQ9J2MnPgoJCQk8ZWxsaXBzZSBjeD0nLTUwJScgcng9JzE1MCUnIHJ5PSczMDAlJyBmaWxsLW9wYWNpdHk9JzAuMScgZmlsbD0nIzBlMWM0NycvPgoJCTwvZz4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9JyMxNmEwODUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9Jy0zMDAlJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PSctMjY2LjY2NjY2NjY2NjY2NjclJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PSctMjMzLjMzMzMzMzMzMzMzMzM0JScvPgoJPHVzZSB4bGluazpocmVmPScjYycgeT0nLTIwMCUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9Jy0xNjYuNjY2NjY2NjY2NjY2NjklJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PSctMTMzLjMzMzMzMzMzMzMzMzM0JScvPgoJPHVzZSB4bGluazpocmVmPScjYycgeT0nLTEwMCUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9Jy02Ni42NjY2NjY2NjY2NjY2NyUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9Jy0zMy4zMzMzMzMzMzMzMzMzMzYlJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScwJScvPgoJPHVzZSB4bGluazpocmVmPScjYycgeT0nMzMuMzMzMzMzMzMzMzMzMzM2JScvPgoJPHVzZSB4bGluazpocmVmPScjYycgeT0nNjYuNjY2NjY2NjY2NjY2NjclJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScxMDAlJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScxMzMuMzMzMzMzMzMzMzMzMzQlJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScxNjYuNjY2NjY2NjY2NjY2NjklJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScyMDAlJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScyMzMuMzMzMzMzMzMzMzMzMzQlJy8+Cgk8dXNlIHhsaW5rOmhyZWY9JyNjJyB5PScyNjYuNjY2NjY2NjY2NjY2NyUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9JzMwMCUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9JzMzMy4zMzMzMzMzMzMzMzMzNyUnLz4KCTx1c2UgeGxpbms6aHJlZj0nI2MnIHk9JzM2Ni42NjY2NjY2NjY2NjY3JScvPgoJPHVzZSB4bGluazpocmVmPScjYycgeT0nNDAwJScvPgo8L3N2Zz4=');
+}
+
+.content {
+    margin: 2em auto;
+    padding: 0 1em;
+    font-size: 1.2em;
+    background: #fff;
+
+    li { margin: 0 0 .4em; }
+}
+
+hr {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 85%;
+    margin: 2.5em auto;
+    text-align: center;
+    color: #ddd;
+    border: 0;
+    border-top: 1px solid #ccc;
+
+    &::before {
+        content: '\2605';
+        position: absolute;
+        z-index: -1;
+        top: -1em;
+        left: 50%;
+        display: block;
+        padding: 0 1em;
+        margin: 0 0 0 -1.4em;
+        line-height: 2em;
+        color: #ccc;
+        background: #fff
+    }
+}
+
+.important {
+    display: inline-block;
+    padding: 0 .4ex;
+    color: #222;
+    background: #fc0;
+}
+.kbd span {
+    display: inline-block;
+    margin: 0 .2em;
+    padding: .3em .6em;
+    font-family: sans-serif;
+    font-size: .9em;
+    text-align: center;
+    color: #666;
+    text-shadow: 0 1px 0 #fff;
+    background: #f1f1f1;
+    border-top: 1px solid #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 0 25px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 2px 3px #666;
+}
+.hyphens {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+/* @section 2.1 Header
+--------------------------------------------------- */
+h1 {
+    margin: 0 0 .1ex;
+    padding: .5em 0 0;
+    text-align: center;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    color: #222;
+}
+.hl-1, .hl-2 { display: block }
+.hl-2 { font-size: 105% }
+
+.dropline {
+    position: relative;
+    z-index: 1;
+    display: block;
+    font-size: .9em;
+    font-style: italic;
+    color: @dropline;
+
+    span {
+        padding: 0 1em;
+        margin: 0 0 0 2em;
+        background: #fff;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: .65em;
+        display: block;
+        border-top: 0.12em solid @dropline;
+        width: 100%;
+    }
+}
+
+/* @section 2.2 navigation
+--------------------------------------------------- */
+.navigation {
+    counter-reset: ebene1;
+    font-family: 'Montserrat', sans-serif;
+
+    ol {
+        li {
+            list-style: none;
+            counter-reset: ebene2;
+
+            &:before {
+                position: relative;
+                left: -2em;
+                margin: 0 -1.8em 0 0;
+                content: counter(ebene1) '. ';
+                counter-increment: ebene1;
+            }
+        }
+
+        ol {
+            margin-left: 1em;
+            li {
+                counter-reset: ebene3;
+
+                &:before {
+                    content: counter(ebene1) '.' counter(ebene2) ' ';
+                    counter-increment: ebene2;
+                }
+            }
+
+            ol {
+                li:before {
+                    content: '';
+                }
+            }
+        }
+    }
+}
+a.menu {
+    float: right;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    color: #ccc;
+}
+
+/* @section 2.3 Footer
+--------------------------------------------------- */
+.footer {
+    border-top: 0.12em solid @dropline;
+    margin: 3em 0 0;
+    padding: 2em 0;
+    font-size: .9em;
+    text-align: center
+}
+
+/* @section 2.4 Grafiken
+--------------------------------------------------- */
+.imgCaption {
+    margin: 0 0 1.5em;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    background: #fff;
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 5px 0 0;
+    }
+    .captionText {
+        margin: .5em 0;
+        font-size: 80%;
+        text-align: left;
+    }
+    &.flr { margin-left: 1em }
+    &.fll { margin-right: 1em }
+    &.full {
+        padding: 0;
+        border: 0;
+    }
+    &.full .captionText { text-align: center }
+}
+
+
+/* @section 98. Media Queries
+--------------------------------------------------- */
+@media only screen and (max-width:39.99em) {
+    h1 { font-size: 220%; font-size: 13vw; }
+    h2, .h2 { font-size:250% }
+    .imgCaption.fll,
+    .imgCaption.flr {
+        float: none;
+        margin: 0 auto 1.5em
+    }
+}
+@media only screen and (min-width:40em) {
+    .content {
+        padding: 0 2em;
+
+        p { text-align: justify; }
+    }
+    h1 { font-size: 420%; font-size: 13vw; }
+}
+@media only screen and (min-width:60em) {
+
+    .navigation {
+        .column-text();
+
+        /*
+        ol ol {
+            -webkit-column-break-inside: avoid;
+            -moz-column-break-inside:avoid;
+            column-break-inside:avoid;
+            -moz-page-break-inside:avoid;
+            page-break-inside: avoid;
+        }
+        */
+    }
+
+    .content {
+        width: 40em;
+        padding: 0 5em;
+    }
+    h1 { font-size: 610%; }
+}
+
+
+/* @section 99. Print-Styles
+--------------------------------------------------- */
+
+/* Die Print-Styles sind in der normalen CSS eingebunden, da man sich so einen Request spart. Wichtig hierbei ist der völlige Verzicht auf das `media`-Attribut bei der Einbindung: `<link rel="stylesheet" href="css/base.css" />` */
+@media print {
+    /* inline, um einen weiteren Request zu verhindern http://www.phpied.com/delay-loading-your-print-css/ */
+    * { background: transparent !important; color: #444 !important; text-shadow: none !important }
+    body { padding: 0 5em; font-size: 85%; }
+    a, a:visited { color: #00f !important; text-decoration: underline }
+    a[href^="http://"]::after,
+    a[href^="https://"]::after,
+    a:after { content: " (" attr(href) ")"; font-size: .8em; color: #999; }
+    a[href^="#"]:after, a[href^="javascript"]:after { content: '' }
+    abbr:after { content: " (" attr(title) ")" }
+    pre { border: 1px solid #999; page-break-inside: avoid }
+    thead { display: table-header-group } /* http://css-discuss.incutio.com/wiki/Printing_Tables */
+    tr, img { page-break-inside: avoid }
+    @page { margin: 0.5cm }
+    p, h2, h3 { orphans: 3; widows: 3 }
+    h2, h3, .imgCaption.full { page-break-after: avoid }
+
+    h1 { font-size: 450%;}
+    .dropline::before { border: 0;}
+    .navigation {
+        .column-text();
+    }
+    .content p { text-align: justify; }
+    hr::before,
+    .menu {display: none;}
+}
